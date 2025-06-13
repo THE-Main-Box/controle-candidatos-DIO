@@ -16,40 +16,40 @@ public class CandidatesCashEvaluationService {
 
             if (baseSalary > candidate.getIntendedSalary()) {
 
-                System.out.println("LIGAR PARA CANDIDATO ["
-                        + candidate.getName()
-                        + "] "
-                        + " | "
-                        + candidate.getIntendedSalary()
-                        + " / "
-                        + baseSalary+ "\n"
-                );
+//                System.out.println("LIGAR PARA CANDIDATO ["
+//                        + candidate.getName()
+//                        + "] "
+//                        + " | "
+//                        + candidate.getIntendedSalary()
+//                        + " / "
+//                        + baseSalary+ "\n"
+//                );
 
                 candidate.setOptimalSalaryExpectations(true);
 
             } else if (baseSalary == candidate.getIntendedSalary()) {
-
-                System.out.println("LIGAR PARA CANDIDATO ["
-                        + candidate.getName()
-                        + "] "
-                        + "COM CONTRA PROPOSTA"
-                        + " | "
-                        + candidate.getIntendedSalary()
-                        + " / "
-                        + baseSalary+ "\n"
-                );
+//
+//                System.out.println("LIGAR PARA CANDIDATO ["
+//                        + candidate.getName()
+//                        + "] "
+//                        + "COM CONTRA PROPOSTA"
+//                        + " | "
+//                        + candidate.getIntendedSalary()
+//                        + " / "
+//                        + baseSalary+ "\n"
+//                );
 
                 candidate.setOptimalSalaryExpectations(false);
 
             } else {
-                System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS ["
-                        + candidate.getName()
-                        + "] "
-                        + " | "
-                        + candidate.getIntendedSalary()
-                        + " / "
-                        + baseSalary + "\n"
-                );
+//                System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS ["
+//                        + candidate.getName()
+//                        + "] "
+//                        + " | "
+//                        + candidate.getIntendedSalary()
+//                        + " / "
+//                        + baseSalary + "\n"
+//                );
 
                 return null;
             }
