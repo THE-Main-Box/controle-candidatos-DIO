@@ -7,9 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import static candidatura.util.constants.Constants.BaseSalary.salariesIntended;
 
 public class SalaryService {
-    public static Vector2 getBaseSalaryRange() {
-        return new Vector2(salariesIntended.getFirst(), salariesIntended.getLast());
-    }
 
     /**
      * @param nota    valor do desempenho do candidato em na seleção

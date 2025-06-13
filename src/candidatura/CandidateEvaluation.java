@@ -1,17 +1,20 @@
 package candidatura;
 
 import candidatura.model.Candidate;
+import candidatura.util.services.CandidateContactService;
 import candidatura.util.services.CandidatesCashEvaluationService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-import static candidatura.util.services.SalaryService.getBaseSalaryRange;
+import static candidatura.util.constants.Constants.CandidatesEvaluationValues.*;
+import static candidatura.util.tools.DebugHelper.getRandomNoteValue;
+import static candidatura.util.tools.DebugHelper.getRandomSalaryValue;
 
 public class CandidateEvaluation {
-    protected static CandidatesCashEvaluationService candidatesCashE = new CandidatesCashEvaluationService();
+    protected static CandidatesCashEvaluationService candidatesCashEService = new CandidatesCashEvaluationService();
+    private static CandidateContactService candidateContactService = new CandidateContactService();
     protected static List<Candidate> candidates = new ArrayList<>();
     protected static List<Candidate> selectedCandidates = new ArrayList<>();
 
@@ -22,25 +25,22 @@ public class CandidateEvaluation {
         showApprovedCandidate();
     }
 
-    private void showApprovedCandidate(){
-        for(Candidate c : selectedCandidates){
-            System.out.println("O candidato(a): " + c.getName() + " foi aprovado para a próxima fase");
+    private void showApprovedCandidate() {
+        for (Candidate c : selectedCandidates) {
+//            System.out.println("O candidato(a): " + c.getName() + " foi aprovado para a próxima fase");
+            candidateContactService.contact(c);
         }
     }
 
-    private int candidateLimit = 5;
-    private final double minV = 0;
-    private final double maxV = 5;
-
     /// Inicia o processo seletivo automatizado
     private void initEvaluation() {
-        for (int i = 0; i < candidates.size(); i++) {
+        for (Candidate candidate : candidates) {
             if (selectedCandidates.size() == candidateLimit) {
                 break;
             }
 
-            Candidate currentC = candidatesCashE.checkCandidate(
-                    candidates.get(i),
+            Candidate currentC = candidatesCashEService.checkCandidate(
+                    candidate,
                     minV,
                     maxV
             );
@@ -65,17 +65,5 @@ public class CandidateEvaluation {
                 ));
     }
 
-    public double getRandomSalaryValue() {
-        double min = getBaseSalaryRange().x;
-        double max = getBaseSalaryRange().y;
 
-        double raw = ThreadLocalRandom.current().nextDouble(min, max);
-
-        // Arredonda para duas casas decimais
-        return Math.round(raw * 100.0) / 100.0;
-    }
-
-    public double getRandomNoteValue() {
-        return ThreadLocalRandom.current().nextDouble(minV, maxV);
-    }
 }

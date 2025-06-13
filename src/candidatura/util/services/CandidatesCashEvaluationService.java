@@ -22,13 +22,13 @@ public class CandidatesCashEvaluationService {
 //                        + " | "
 //                        + candidate.getIntendedSalary()
 //                        + " / "
-//                        + baseSalary
+//                        + baseSalary+ "\n"
 //                );
 
                 candidate.setOptimalSalaryExpectations(true);
 
             } else if (baseSalary == candidate.getIntendedSalary()) {
-
+//
 //                System.out.println("LIGAR PARA CANDIDATO ["
 //                        + candidate.getName()
 //                        + "] "
@@ -36,17 +36,19 @@ public class CandidatesCashEvaluationService {
 //                        + " | "
 //                        + candidate.getIntendedSalary()
 //                        + " / "
-//                        + baseSalary
+//                        + baseSalary+ "\n"
 //                );
 
                 candidate.setOptimalSalaryExpectations(false);
 
             } else {
-//                System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS"
+//                System.out.println("AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS ["
+//                        + candidate.getName()
+//                        + "] "
 //                        + " | "
 //                        + candidate.getIntendedSalary()
 //                        + " / "
-//                        + baseSalary
+//                        + baseSalary + "\n"
 //                );
 
                 return null;

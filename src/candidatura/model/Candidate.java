@@ -7,6 +7,10 @@ public class Candidate {
 
     private boolean optimalSalaryExpectations = false;
 
+    private boolean contacted = false;
+
+    private int triedContacts = 0;
+
     public Candidate() {
     }
 
@@ -18,6 +22,22 @@ public class Candidate {
 
     public void setOptimalSalaryExpectations(boolean optimalSalaryExpectations) {
         this.optimalSalaryExpectations = optimalSalaryExpectations;
+    }
+
+    public void addContactTries() {
+        triedContacts++;
+    }
+
+    public int getTriedContacts() {
+        return triedContacts;
+    }
+
+    public boolean isContacted() {
+        return contacted;
+    }
+
+    public void setContacted(boolean contacted) {
+        this.contacted = contacted;
     }
 
     public boolean isOptimalSalaryExpectations() {
